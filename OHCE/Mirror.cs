@@ -6,12 +6,11 @@ public class Mirror
     {
         
         string inversed = new string(stringToReverse.Reverse().ToArray());
-        
         if (stringToReverse.Equals(inversed))
         {
             inversed += "\nBien dit";
         }
         
-        return "Bonjour\n"+inversed;
+        return "Bonjour\n"+inversed+"Au revoir";
     }
 }
