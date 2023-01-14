@@ -7,13 +7,28 @@ public class MirrorTest
         "ALORS celle-ci est renvoyée en miroir")]
     public void returnMirrorTest()
     {
-        //GIVEN on saisit une chaîne
+        //GIVEN 
         string stringToReverse = "test";
 
-        //WHEN cette chaine est retournée
+        //WHEN on saisit une chaîne
         string retour = Mirror.returnMirror(stringToReverse);
 
         //THEN celle-ci est renvoyée en miroir
         Assert.Equal("tset", retour);
+    }
+    
+    [Fact(DisplayName =
+        "QUAND on saisit un palindrome" +
+        "ALORS celui-ci est renvoyé" +
+        "AND \"bien dit\"  est retourné")]
+    public void returnMirrorTestAndSayBienDit()
+    {
+        //GIVEN 
+
+        //WHEN on saisit une chaîne
+
+        //THEN celle-ci est renvoyée en miroir
+        
+        //AND "bien dit est retourné
     }
 }
