@@ -48,4 +48,19 @@ public class MirrorTest
         //THEN alors 'bonjour' est envoyé avant toute réponse
         Assert.StartsWith("Bonjour", retour);
     }
+    
+    [Fact(DisplayName =
+        "QUAND on saisit une chaine" +
+        "ALORS 'Au revoir' est envoyé en dernier")]
+    public void aurevoirInLastWhenStringIsWrite()
+    {
+        //GIVEN 
+        string stringIsWrite = "une chaine";
+    
+        //WHEN on saisit une chaîne
+        string retour = Mirror.returnMirror(stringIsWrite);
+    
+        //THEN alors 'aurevoir' est envoyé en dernier
+        Assert.EndsWith("Au revoir", retour);
+    }
 }

@@ -12,6 +12,6 @@ public class Mirror
             inversed += "\nBien dit";
         }
         
-        return "Bonjour"+inversed;
+        return "Bonjour\n"+inversed;
     }
 }
