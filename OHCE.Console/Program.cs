@@ -1,4 +1,11 @@
-﻿using System.Globalization;
-using OHCE;
-using OHCE.Console;
+﻿namespace OHCE.Console
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("Bienvenue dans OHCEB3Nantes!");
+        }
+    }
+}
 
