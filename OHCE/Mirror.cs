@@ -4,6 +4,7 @@ public class Mirror
 {
     public static String returnMirror(String stringToReverse)
     {
-        return null;
+        
+        return new string(stringToReverse.Reverse().ToArray());
     }
 }
