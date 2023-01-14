@@ -5,6 +5,13 @@ public class Mirror
     public static String returnMirror(String stringToReverse)
     {
         
-        return new string(stringToReverse.Reverse().ToArray());
+        string inversed = new string(stringToReverse.Reverse().ToArray());
+        
+        if (stringToReverse.Equals(inversed))
+        {
+            inversed += "\nBien dit";
+        }
+        
+        return inversed;
     }
 }
