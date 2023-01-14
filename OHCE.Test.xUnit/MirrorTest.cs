@@ -33,4 +33,19 @@ public class MirrorTest
         //AND "bien dit" est retourné
         Assert.Equal("bob\nBien dit", retour);
     }
+    
+    [Fact(DisplayName =
+        "QUAND on saisit une chaine" +
+        "ALORS 'bonjour' est envoyé avant toute reponse")]
+    public void bonjourInFirstWhenStringIsWrite()
+    {
+        //GIVEN 
+        string stringIsWrite = "une chaine";
+
+        //WHEN on saisit une chaîne
+        string retour = Mirror.returnMirror(stringIsWrite);
+
+        //THEN alors 'bonjour' est envoyé avant toute réponse
+        Assert.StartsWith("Bonjour", retour);
+    }
 }
