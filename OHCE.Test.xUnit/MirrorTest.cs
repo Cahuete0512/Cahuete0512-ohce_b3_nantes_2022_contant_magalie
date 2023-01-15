@@ -111,4 +111,24 @@ public class MirrorTest
         // THEN : <bonjour> de cette langue est envoyé avant tout
         Assert.StartsWith(langue.DireBonjour, retour);
     }
+    
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue" +
+        "QUAND on saisit une chaine" +
+        "ALORS <au revoir> de cette langue est envoyé en dernier")]
+    [InlineData("en")]
+    [InlineData("fr")]
+    public void aurevoirSuivantLaLangueUtilisateurEnDernier(String language)
+    {
+        // GIVEN : ETANT DONNE un utilisateur parlant une langue
+        Langue langue = new Langue(language);
+        Mirror mirror = new Mirror(langue);
+        string stringIsWrite = "une chaine";
+        
+        // WHEN : QUAND on saisit une chaine
+        var retour = mirror.returnMirror(stringIsWrite);
+
+        // THEN : <au revoir> de cette langue est envoyé en dernier
+        Assert.EndsWith(langue.AuRevoir, retour);
+    }
 }
