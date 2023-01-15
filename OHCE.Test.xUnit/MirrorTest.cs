@@ -73,7 +73,6 @@ public class MirrorTest
         "QUAND on entre un palindrome" +
         "ALORS il est renvoyé" +
         "ET le <bienDit> de cette langue est envoyé")]
- 
     [InlineData("en")]
     [InlineData("fr")]
     public void bienDitSelonLaLangueUtilisateur(String language)
@@ -91,5 +90,25 @@ public class MirrorTest
 
         // AND : ET le <bienDit> de cette langue est envoyé
         Assert.Contains(langue.BienDit, retour);
+    }
+    
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue" +
+        "QUAND on saisit une chaine" +
+        "ALORS <bonjour> de cette langue est envoyé avant tout")]
+    [InlineData("en")]
+    [InlineData("fr")]
+    public void bonjourSuivantLaLangueUtilisateur(String language)
+    {
+        // GIVEN : ETANT DONNE un utilisateur parlant une langue
+        Langue langue = new Langue(language);
+        Mirror mirror = new Mirror(langue);
+        string stringIsWrite = "une chaine";
+        
+        // WHEN : QUAND on saisit une chaine
+        var retour = mirror.returnMirror(stringIsWrite);
+
+        // THEN : <bonjour> de cette langue est envoyé avant tout
+        Assert.StartsWith(langue.DireBonjour, retour);
     }
 }
