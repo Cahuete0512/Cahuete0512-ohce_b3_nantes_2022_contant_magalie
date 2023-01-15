@@ -6,20 +6,22 @@ namespace OHCE;
 public class Mirror
 {
     private ILangue _langue;
+    private PeriodeJournee _periodeJournee;
 
     public Mirror()
     {
         _langue = new Langue("en");
     }
 
-    public Mirror(ILangue langue)
+    public Mirror(ILangue langue, PeriodeJournee periodeJournee)
     {
         _langue = langue;
+        _periodeJournee = periodeJournee;
     }
 
     public String returnMirror(String stringToReverse)
     {
-        StringBuilder stringBuilder = new StringBuilder(_langue.DireBonjour)
+        StringBuilder stringBuilder = new StringBuilder(_langue.direBonjour(_periodeJournee))
             .Append("\n");
 
         string inversed = new string(stringToReverse.Reverse().ToArray());
