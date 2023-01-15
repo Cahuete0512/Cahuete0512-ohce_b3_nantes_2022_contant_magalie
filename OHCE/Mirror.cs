@@ -10,7 +10,8 @@ public class Mirror
 
     public Mirror()
     {
-        _langue = new Langue("en");
+        _langue = new Langue("fr");
+        _periodeJournee = PeriodeJournee.Matin;
     }
 
     public Mirror(ILangue langue, PeriodeJournee periodeJournee)
@@ -35,7 +36,7 @@ public class Mirror
         }
 
         stringBuilder.Append("\n")
-            .Append(_langue.AuRevoir);
+            .Append(_langue.direAurevoir(_periodeJournee));
 
         return stringBuilder.ToString();
     }

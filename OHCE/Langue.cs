@@ -5,7 +5,6 @@ namespace OHCE;
 public class Langue : ILangue
 {
     public string BienDit { get; }
-    public string AuRevoir { get; }
     string _langue;
     
     public Langue(string langue)
@@ -15,15 +14,12 @@ public class Langue : ILangue
         {
             case "fr":
                 BienDit = "Bien dit!";
-                AuRevoir = "Au revoir !";
                 break;
             case "en":
                 BienDit = "Well said!";
-                AuRevoir = "Goodbye !";
                 break;
             default:
                 BienDit = "Language not supported";
-                AuRevoir = "Language not supported";
                 break;
         }
     }
@@ -131,5 +127,110 @@ public class Langue : ILangue
         }
 
         return bonjour;
+    }
+
+    public String direAurevoir(PeriodeJournee periode)
+    {
+        String aurevoir;
+        switch (periode)
+        {
+            case PeriodeJournee.Matin:
+                aurevoir = aurevoirMatin();
+                break;
+            case PeriodeJournee.AprèsMidi:
+                aurevoir = aurevoirApresMidi();
+                break;
+            case PeriodeJournee.Soir:
+                aurevoir = aurevoirSoir();
+                break;
+            case PeriodeJournee.Nuit:
+                aurevoir = aurevoirNuit();
+                break;
+            default:
+                aurevoir = "Language not supported";
+                break;
+        }
+
+        return aurevoir;
+    }
+
+    private string aurevoirNuit()
+    {
+        String aurevoir;
+        
+        switch (_langue)
+        {
+            case "fr":
+                aurevoir = "Au revoir_nuit !";
+                break;
+            case "en":
+                aurevoir = "GoodBye_nuit !";
+                break;
+            default:
+                aurevoir = "Language not supported";
+                break;
+        }
+
+        return aurevoir;
+    }
+
+    private string aurevoirSoir()
+    {
+        String aurevoir;
+        
+        switch (_langue)
+        {
+            case "fr":
+                aurevoir = "Au revoir_soir !";
+                break;
+            case "en":
+                aurevoir = "GoodBye_soir !";
+                break;
+            default:
+                aurevoir = "Language not supported";
+                break;
+        }
+
+        return aurevoir;
+    }
+
+    private string aurevoirApresMidi()
+    {
+        String aurevoir;
+        
+        switch (_langue)
+        {
+            case "fr":
+                aurevoir = "Au revoir_pm !";
+                break;
+            case "en":
+                aurevoir = "GoodBye_pm !";
+                break;
+            default:
+                aurevoir = "Language not supported";
+                break;
+        }
+
+        return aurevoir;
+    }
+
+    private string aurevoirMatin()
+    {
+        String aurevoir;
+        
+        switch (_langue)
+        {
+            case "fr":
+                aurevoir = "Au revoir_am !";
+                break;
+            case "en":
+                aurevoir = "GoodBye_am !";
+                break;
+            default:
+                aurevoir = "Language not supported";
+                break;
+        }
+
+        return aurevoir;
     }
 }
