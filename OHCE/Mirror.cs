@@ -1,5 +1,7 @@
 using System.Text;
 using OHCE.Interfaces;
+using System.Globalization;
+using OHCE.Console;
 
 namespace OHCE;
 
@@ -10,8 +12,21 @@ public class Mirror
 
     public Mirror()
     {
-        _langue = new Langue("fr");
-        _periodeJournee = PeriodeJournee.Matin;
+        
+        switch (CultureInfo.CurrentUICulture.Name)
+        {
+            case "fr-FR":
+                _langue = new Langue("fr");
+                break;
+            case "en-US":
+            case "en-GB":
+                _langue = new Langue("en");
+                break;
+            default:
+                _langue = new Langue("fr");
+                break;
+        }
+        _periodeJournee = SystemTimeOfDay.getPeriodeActuelle();
     }
 
     public Mirror(ILangue langue, PeriodeJournee periodeJournee)
