@@ -6,7 +6,7 @@ public class Mirror
 {
     public static String returnMirror(String stringToReverse)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder("Bonjour\n");
         
         string inversed = new string(stringToReverse.Reverse().ToArray());
 

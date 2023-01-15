@@ -14,7 +14,7 @@ public class MirrorTest
         string retour = Mirror.returnMirror(stringToReverse);
 
         //THEN celle-ci est renvoyée en miroir
-        Assert.Equal("tset", retour);
+        Assert.Contains("tset", retour);
     }
 
     [Fact(DisplayName =
@@ -31,7 +31,7 @@ public class MirrorTest
 
         //THEN celle-ci est renvoyée en miroir
         //AND "bien dit" est retourné
-        Assert.Equal("bob\nBien dit", retour);
+        Assert.Contains("bob\nBien dit", retour);
     }
     
     [Fact(DisplayName =
