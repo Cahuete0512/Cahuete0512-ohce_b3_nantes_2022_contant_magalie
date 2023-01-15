@@ -32,7 +32,8 @@ public class Mirror
                 .Append(_langue.BienDit);
         }
 
-        stringBuilder.Append("\nAu revoir");
+        stringBuilder.Append("\n")
+            .Append(_langue.AuRevoir);
 
         return stringBuilder.ToString();
     }
