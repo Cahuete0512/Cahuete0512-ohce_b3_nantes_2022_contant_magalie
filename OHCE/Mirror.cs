@@ -1,16 +1,24 @@
+using System.Text;
+
 namespace OHCE;
 
 public class Mirror
 {
     public static String returnMirror(String stringToReverse)
     {
+        StringBuilder stringBuilder = new StringBuilder();
         
         string inversed = new string(stringToReverse.Reverse().ToArray());
+
+        stringBuilder.Append(inversed);
+        
         if (stringToReverse.Equals(inversed))
         {
-            inversed += "\nBien dit";
+            stringBuilder.Append("\nBien dit");
         }
+
+        stringBuilder.Append("\nAu revoir");
         
-        return "Bonjour\n"+inversed+"Au revoir";
+        return stringBuilder.ToString();
     }
 }
