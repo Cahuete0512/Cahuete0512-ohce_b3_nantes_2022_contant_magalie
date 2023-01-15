@@ -1,11 +1,19 @@
 using System.Text;
+using OHCE.Interfaces;
 
 namespace OHCE;
 
 public class Mirror
 {
+    private ILangue _langue;
     public Mirror()
     {
+        _langue = new Langue("en");
+    }
+    
+    public Mirror(ILangue langue)
+    {
+        _langue = langue;
     }
 
     public String returnMirror(String stringToReverse)
@@ -18,7 +26,8 @@ public class Mirror
         
         if (stringToReverse.Equals(inversed))
         {
-            stringBuilder.Append("\nBien dit");
+            stringBuilder.Append("\n")
+                .Append(_langue.BienDit);
         }
 
         stringBuilder.Append("\nAu revoir");

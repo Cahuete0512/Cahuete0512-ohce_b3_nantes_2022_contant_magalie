@@ -67,4 +67,29 @@ public class MirrorTest
         //THEN alors 'aurevoir' est envoyé en dernier
         Assert.EndsWith("Au revoir", retour);
     }
+    
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue" +
+        "QUAND on entre un palindrome" +
+        "ALORS il est renvoyé" +
+        "ET le <bienDit> de cette langue est envoyé")]
+ 
+    [InlineData("en")]
+    [InlineData("fr")]
+    public void bienDitSelonLaLangueUtilisateur(String language)
+    {
+        // GIVEN : ETANT DONNE un utilisateur parlant une langue
+        Langue langue = new Langue(language);
+        Mirror mirror = new Mirror(langue);
+        string mot = "bob";
+        
+        // WHEN : QUAND on entre un palindrome
+        var retour = mirror.returnMirror(mot);
+
+        // THEN : ALORS il est renvoyé
+        Assert.Contains(mot, retour);
+
+        // AND : ET le <bienDit> de cette langue est envoyé
+        Assert.Contains(langue.BienDit, retour);
+    }
 }
