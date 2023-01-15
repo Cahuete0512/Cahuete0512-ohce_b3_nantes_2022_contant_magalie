@@ -14,12 +14,15 @@ public class Langue : ILangue
         {
             case "fr":
                 BienDit = "Bien dit!";
+                DireBonjour = "Bonjour !";
                 break;
             case "en":
                 BienDit = "Well said!";
+                DireBonjour = "Hello !";
                 break;
             default:
                 BienDit = "Language not supported";
+                DireBonjour = "Language not supported";
                 break;
         }
     }
