@@ -2,6 +2,7 @@ namespace OHCE.Test.xUnit;
 
 public class MirrorTest
 {
+
     [Fact(DisplayName =
         "QUAND on saisit une chaîne " +
         "ALORS celle-ci est renvoyée en miroir")]
@@ -79,7 +80,7 @@ public class MirrorTest
     {
         // GIVEN : ETANT DONNE un utilisateur parlant une langue
         Langue langue = new Langue(language);
-        Mirror mirror = new Mirror(langue);
+        Mirror mirror = new Mirror(langue, PeriodeJournee.Matin);
         string mot = "bob";
         
         // WHEN : QUAND on entre un palindrome
@@ -91,44 +92,32 @@ public class MirrorTest
         // AND : ET le <bienDit> de cette langue est envoyé
         Assert.Contains(langue.BienDit, retour);
     }
-    
+
     [Theory(DisplayName =
         "ETANT DONNE un utilisateur parlant une langue" +
+        "ET que la periode de la journee est <periode>" +
         "QUAND on saisit une chaine" +
-        "ALORS <bonjour> de cette langue est envoyé avant tout")]
-    [InlineData("en")]
-    [InlineData("fr")]
-    public void bonjourSuivantLaLangueUtilisateur(String language)
+        "ALORS <salutation> de cette langue à cette période est envoyé avant tout")]
+    [InlineData("en", PeriodeJournee.Matin)]
+    [InlineData("en", PeriodeJournee.AprèsMidi)]
+    [InlineData("en", PeriodeJournee.Soir)]
+    [InlineData("en", PeriodeJournee.Nuit)]
+    [InlineData("fr", PeriodeJournee.Matin)]
+    [InlineData("fr", PeriodeJournee.AprèsMidi)]
+    [InlineData("fr", PeriodeJournee.Soir)]
+    [InlineData("fr", PeriodeJournee.Nuit)]
+    public void bonjourSuivantLangueEtPeriodeJournee(String language, PeriodeJournee periode)
     {
         // GIVEN : ETANT DONNE un utilisateur parlant une langue
+        // AND : ET que la periode de la journee est <periode>
         Langue langue = new Langue(language);
-        Mirror mirror = new Mirror(langue);
+        Mirror mirror = new Mirror(langue, periode);
         string stringIsWrite = "une chaine";
         
         // WHEN : QUAND on saisit une chaine
         var retour = mirror.returnMirror(stringIsWrite);
-
-        // THEN : <bonjour> de cette langue est envoyé avant tout
-        Assert.StartsWith(langue.DireBonjour, retour);
-    }
     
-    [Theory(DisplayName =
-        "ETANT DONNE un utilisateur parlant une langue" +
-        "QUAND on saisit une chaine" +
-        "ALORS <au revoir> de cette langue est envoyé en dernier")]
-    [InlineData("en")]
-    [InlineData("fr")]
-    public void aurevoirSuivantLaLangueUtilisateurEnDernier(String language)
-    {
-        // GIVEN : ETANT DONNE un utilisateur parlant une langue
-        Langue langue = new Langue(language);
-        Mirror mirror = new Mirror(langue);
-        string stringIsWrite = "une chaine";
-        
-        // WHEN : QUAND on saisit une chaine
-        var retour = mirror.returnMirror(stringIsWrite);
-
-        // THEN : <au revoir> de cette langue est envoyé en dernier
-        Assert.EndsWith(langue.AuRevoir, retour);
+        // THEN : ALORS <salutation> de cette langue à cette période est envoyé avant tout
+        Assert.StartsWith(langue.direBonjour(periode), retour);
     }
 }
