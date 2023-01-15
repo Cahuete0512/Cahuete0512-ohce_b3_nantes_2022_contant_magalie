@@ -4,7 +4,11 @@ namespace OHCE;
 
 public class Mirror
 {
-    public static String returnMirror(String stringToReverse)
+    public Mirror()
+    {
+    }
+
+    public String returnMirror(String stringToReverse)
     {
         StringBuilder stringBuilder = new StringBuilder("Bonjour\n");
         

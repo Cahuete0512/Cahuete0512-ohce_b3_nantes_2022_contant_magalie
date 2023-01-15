@@ -8,10 +8,11 @@ public class MirrorTest
     public void returnMirrorTest()
     {
         //GIVEN 
+        Mirror mirror = new Mirror();
         string stringToReverse = "test";
 
         //WHEN on saisit une chaîne
-        string retour = Mirror.returnMirror(stringToReverse);
+        string retour = mirror.returnMirror(stringToReverse);
 
         //THEN celle-ci est renvoyée en miroir
         Assert.Contains("tset", retour);
@@ -24,10 +25,11 @@ public class MirrorTest
     public void returnMirrorTestAndSayBienDit()
     {
         //GIVEN 
+        Mirror mirror = new Mirror();
         string stringToReverse = "bob";
 
         //WHEN on saisit une chaîne
-        string retour = Mirror.returnMirror(stringToReverse);
+        string retour = mirror.returnMirror(stringToReverse);
 
         //THEN celle-ci est renvoyée en miroir
         //AND "bien dit" est retourné
@@ -41,9 +43,10 @@ public class MirrorTest
     {
         //GIVEN 
         string stringIsWrite = "une chaine";
+        Mirror mirror = new Mirror();
 
         //WHEN on saisit une chaîne
-        string retour = Mirror.returnMirror(stringIsWrite);
+        string retour = mirror.returnMirror(stringIsWrite);
 
         //THEN alors 'bonjour' est envoyé avant toute réponse
         Assert.StartsWith("Bonjour", retour);
@@ -56,9 +59,10 @@ public class MirrorTest
     {
         //GIVEN 
         string stringIsWrite = "une chaine";
-    
+        Mirror mirror = new Mirror();
+
         //WHEN on saisit une chaîne
-        string retour = Mirror.returnMirror(stringIsWrite);
+        string retour = mirror.returnMirror(stringIsWrite);
     
         //THEN alors 'aurevoir' est envoyé en dernier
         Assert.EndsWith("Au revoir", retour);
